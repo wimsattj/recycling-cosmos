@@ -36,10 +36,28 @@ body {
    ============================================ */
 
 header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    position: relative;
+    background-image: url('../images/web-banner.png');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
     color: white;
     padding: 60px 0;
     text-align: center;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(30,64,175,0.62) 0%, rgba(124,58,237,0.55) 100%);
+    z-index: 0;
+}
+
+header .container {
+    position: relative;
+    z-index: 1;
 }
 
 header h1 {
@@ -350,4 +368,51 @@ footer {
         text-align: center;
         margin-right: 0;
     }
+}
+
+/* ============================================
+   HEADER BUTTON
+   ============================================ */
+
+.btn-header {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: white;
+    color: var(--primary);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.btn-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   ARTICLE BADGES
+   ============================================ */
+
+.article-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background-color: #16a34a;
+    color: white;
+}
+
+.article-badge.upcoming {
+    background-color: var(--secondary);
+}
+
+.article-item.published {
+    border-left-color: #16a34a;
 }
